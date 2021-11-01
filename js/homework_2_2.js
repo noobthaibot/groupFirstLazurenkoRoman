@@ -13,3 +13,4 @@ if (result >= 5 && result <= 20) {
         console.log(number + ' дней');
     }
 }
+
