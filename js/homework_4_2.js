@@ -1,32 +1,16 @@
-const cards = [
-    'Карточка-1' ,
-    'Карточка-2' ,
-    'Карточка-3' ,
-    'Карточка-4' ,
-    'Карточка-5' ,
-]
+const fn = function () {
+    console.log(1);
+    
+    console.log(2);
 
-console.table(cards);
+    console.log(3);
+    return  11;
+}
 
-// const cardToRemove = 'Карточка-3';
-// const index = cards.indexOf(cardToRemove);
-// console.log(index);
-
-// console.table(cards.splice(index, 1));
+console.log(fn());
 
 
 
-
-const cardToInsert = 'Карточка-6';
-const index = 3;
- 
-cards.splice(1, 0, 5, 10, 20, 30);
-console.table(cards)
-
-
-
-
-// const cardToUpdate = 'Карточка-4';
 
 
 
