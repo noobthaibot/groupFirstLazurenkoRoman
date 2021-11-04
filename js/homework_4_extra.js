@@ -1,33 +1,43 @@
-let cities = [];
+function start_game_city_chain(first_city = "Киев") {
+    if (typeof first_city !== "string") {
+        return false;
+    }
 
-enteredCity = prompt("Введите город");
+    function add_to_memory(memory_array, city) {
+        memory_array.push(city.toLowerCase());
+    }
 
-cities.push(enteredCity);
+    let cities = [first_city];
+    add_to_memory(cities, first_city);
+    let points = 0;
 
-console.log(cities);
+    while (true) {
+        let new_city = prompt("Введите название города", "");
+        console.log(new_city.toLowerCase()),
+            cities,
+            cities.indexOf(new_city.toLowerCase());
+        if (cities.indexOf(new_city) > -1) {
+            alert("Такой город уже вводился");
+        }
 
-let lastWord = cities[cities.length - 1];
-let lastWordLetter = lastWord.slice(-1).toUpperCase();
+        let prev_city = cities[cities.length - 1];
 
-console.log(lastWord);
-console.log(lastWordLetter);
+        let last_char = prev_city[prev_city.length - 1];
+        let first_char = new_city[0];
 
-let newWord = prompt(`Введите город, который кончается на букву - ${lastWordLetter}`);
+        last_char = last_char.tolowerCase();
+        first_char = first_char.tolowerCase();
 
-let newWordLetter = newWord.substring(0, 1);
+        if (last_char === first_char) {
+            points++;
+            add_to_memory(cities, new_city);
+        } else {
+            alert(`Игра окончена. Ваши очки: ${points}`);
+            break;
+        }
 
-for (const city of cities) {
-    if (newWordLetter !== lastWordLetter) {
-        alert("Вы проиграли");
-    } else {
-        cities.push(newWord);
-        console.log(cities);
-        newWord = lastWord;
-        console.log(lastWord);
-        console.log(lastWordLetter);
-        enteredCity = prompt(`Введите город, который кончается на букву - ${lastWordLetter}`);
-        cities.push(newWord);
-        console.log(cities);
+        console.log(last_char, first_char);
     }
 }
 
+start_game_city_chain("Краматорск");
