@@ -1,6 +1,6 @@
 $(document).ready(function () {
     function getFirstDivs() {
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 1000; i++) {
             $("body").append("<div></div>");
             $("body div").addClass("atributes");
         }
