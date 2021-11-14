@@ -1,34 +1,64 @@
 .atributes {
-    background-color:blue;
-    width: 50px;
-    height: 50px;
+    background-color: skyblue;
+    min-width: 70px;
+    min-height: 70px;
     margin: 10px;
-}
-.atributes2 {
-    background-color:green;
-    width: 100px;
-    height: 100px;
+  }
+  .atributes2 {
+    background-color: violet;
+    min-width: 100px;
+    min-height: 100px;
     margin: 10px;
-}
-.atributes3 {
-    background: yellow;
-}
-.atributes4 {
-    background: red;;
-}
-.black {
+  }
+  .atributes3 {
+    background: red;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 10px;
+  }
+  .atributes4 {
+    background: red;
+    min-width: 30px;
+    min-height: 30px;
+  }
+  .atributes5 {
+      background: red;
+      min-width: 30px;
+      min-height: 30px;
+    }
+  }
+  .black {
     width: 100%;
     height: 100%;
     background-color: black;
-}
-.first-div {
+  }
+  .first-div {
     width: 100px;
     height: 100px;
     background: teal;
-}
-.second-div {
+  }
+  .second-div {
     width: 200px;
     height: 200px;
     background: rebeccapurple;
-}
+  }
+  body {
+    width: 100%;
+    display: flex;
+    flex-shrink: 0;
+    font-size: 22px;
+    align-items: center;
+  }
 
+  .triangle {
+    
+    width: 0;
+	height: 0;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	border-bottom: 100px solid khaki;
+    margin: 10px;
+  }
+  .atributes6 {
+      background: black;
+  }
