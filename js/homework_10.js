@@ -1,39 +1,35 @@
-// $(document).ready(function () {
-//     const fetchPost = (id) => {
-//         return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-//         .then((result) => result.json())
-//     };
-
-//     fetchPost(2).then(onFetchSuccess).catch(onFetchError);
-
-//     function onFetchSuccess() {
-//         let json = fetchPost(2);
-//         console.log(JSON.stringify());
-//         for (let i = 0;i < json.lenght; i++) {
-//             let userObject = json[i];
-//             console.log(json[i]);
-//         }
-//     };
-//     function onFetchError(error) {
-//         console.log(error);
-//     }
-
-// });
 $(document).ready(function () {
-    fetch("https://jsonplaceholder.typicode.com/posts", {
-        method: "POST",
-        body: JSON.stringify({
-            title: "foo",
-            body: "bar",
-            userId: 1,
-        }),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",
-        },
-    })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+    async function getResponse() {
+        let response  = await fetch('https://jsonplaceholder.typicode.com/photos');
+        let content = await response.json();
+        content = content.splice(0, 10);
 
-    document.getElementById("name").innerHTML = response.name;
-    document.getElementById("job").innerHTML = response.job;
-});
+        let list = document.querySelector('.main-div');
+
+        let key;
+        for (key in content) {
+            list.innerHTML += `
+            <div class="item">
+                <h3>${content[key].title}</h3>
+                <img src="${content[key].url}" width = "300px">
+                <a href="${content[key].thumbnailUrl}">Ссылка на картинку</a>
+                <div class="button-wrap">
+                    <button type="button" class="button1" id="first-button" value=>ALERT</button>
+                    <button type="button" class="button2" id="second-button">DELETE</button>
+                </div>    
+            </div>`
+        };
+        console.log(content[key]);
+        $('.button1').on({
+            click: function() {
+                alert("Размер этой картинки - 300px")
+            }
+        })
+        $('.button2').on({
+            click: function() {
+                $(this).parent().parent().remove();
+            }
+        })
+    }
+    getResponse();
+ });
