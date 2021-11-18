@@ -6,14 +6,14 @@ let points = {
     Сергей: 450,
 };
 
-let VALUES = Object.entries(points);
+let values = Object.entries(points);
 
 let totalSum = 0;
 let min = Infinity;
 let max = -Infinity;
 let minName = "";
 let maxName = "";
-for (const value of VALUES) {
+for (const value of values) {
     let name = value[0];
     let point = value[1];
     // console.log(name);
