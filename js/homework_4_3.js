@@ -1,5 +1,10 @@
 function toReverseString(string) {
-    return string.split("").reverse().join("");
+    let splittedString = string.split("");
+
+    let reversedString = splittedString.reverse();
+
+    let joinedString = reversedString.join("");
+    return joinedString;
 }
 
 console.log(toReverseString("Sator"));

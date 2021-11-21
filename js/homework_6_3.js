@@ -12,7 +12,7 @@ const DAYS_OF_WEEK = [
     "воскресенье",
 ];
 
-function get_day(date) {
+function getDay(date) {
     if (date instanceof Date) {
         if (date.getDay() === 1) {
             console.log(DAYS_OF_WEEK[0]);
@@ -33,4 +33,4 @@ function get_day(date) {
     }
     return null;
 }
-console.log(get_day((new Date(2022, 0, 1))));
+getDay((new Date(2022, 0, 1)));

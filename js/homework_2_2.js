@@ -1,5 +1,8 @@
 let number = prompt ('Enter number');
-number = Number(number);
+if (number === String.number) {
+    console.log('Вы ввели недопустимое значение');
+} else {
+    number = Number(number);
 let result = number % 100;
 if (result >= 5 && result <= 20) {
     console.log(number + ' дней');
@@ -12,5 +15,6 @@ if (result >= 5 && result <= 20) {
     } else {
         console.log(number + ' дней');
     }
+}
 }
 

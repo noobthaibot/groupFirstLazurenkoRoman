@@ -1,43 +1,51 @@
-function start_game_city_chain(first_city = "Киев") {
-    if (typeof first_city !== "string") {
-        return false;
-    }
+function startGameCityChain() {
+    const MAX_COUNT_ATTEMPTS = 500;
 
-    function add_to_memory(memory_array, city) {
-        memory_array.push(city.toLowerCase());
-    }
-
-    let cities = [first_city];
-    add_to_memory(cities, first_city);
+    let firstLetter;
+    let lastLetter;
+    let city;
     let points = 0;
+    let cities = [];
 
-    while (true) {
-        let new_city = prompt("Введите название города", "");
-        console.log(new_city.toLowerCase()),
-            cities,
-            cities.indexOf(new_city.toLowerCase());
-        if (cities.indexOf(new_city) > -1) {
-            alert("Такой город уже вводился");
-        }
+    city = prompt("Введите первый город");
+    cities.push(city);
 
-        let prev_city = cities[cities.length - 1];
+    lastLetter = city[city.length - 1];
 
-        let last_char = prev_city[prev_city.length - 1];
-        let first_char = new_city[0];
+    let i = 0;
 
-        last_char = last_char.tolowerCase();
-        first_char = first_char.tolowerCase();
-
-        if (last_char === first_char) {
-            points++;
-            add_to_memory(cities, new_city);
-        } else {
-            alert(`Игра окончена. Ваши очки: ${points}`);
+    while (i < MAX_COUNT_ATTEMPTS) {
+        i++;
+        city = prompt(`Введите город на букву '${lastLetter}'.`);
+        if (cities.includes(city)) {
+            alert(`Город "${city}" уже использовался`);
+            continue;
+        } else if (city === null) {
             break;
+        } else {
+            cities.push(city);
         }
 
-        console.log(last_char, first_char);
-    }
-}
+        firstLetter = city[0];
 
-start_game_city_chain("Краматорск");
+        if (
+            firstLetter !== lastLetter &&
+            firstLetter !== lastLetter.toUpperCase() &&
+            firstLetter !== lastLetter.toLowerCase()
+        ) {
+            alert(`Конец игры. Всего очков:${points}.`);
+            return;
+        }
+        points++;
+
+        lastLetter = city[city.length - 1];
+        if (lastLetter === "ь" || lastLetter === "ы") {
+            lastLetter = city[city.length - 2];
+        }
+
+        console.log(cities);
+    }
+
+    alert(`Конец игры. Всего очков: ${points}.`);
+}
+startGameCityChain();

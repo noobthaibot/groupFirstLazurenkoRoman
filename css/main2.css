@@ -1,0 +1,13 @@
+.bricks-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.bricks-wrapper div {
+    margin: 10px;
+}
+.ball {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

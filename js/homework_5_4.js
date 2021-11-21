@@ -16,19 +16,14 @@ let maxName = "";
 for (const value of values) {
     let name = value[0];
     let point = value[1];
-    // console.log(name);
-    // console.log(point);
     if (point > max) {
         max = point;
         maxName = name;
     }
-    // console.log(maxName);
-
     if (point < min) {
         min = point;
         minName = name;
     }
-
     totalSum += point;
 }
 

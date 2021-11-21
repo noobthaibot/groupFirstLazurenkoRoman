@@ -17,7 +17,6 @@ function Calculator(name) {
     this.memoryLog = function () {
         console.log("История вычеслений");
         for (const i in this.memory) {
-            console.log(this.memory[i]);
         }
     };
 
@@ -80,7 +79,7 @@ calc.getMultiply();
 calc.getSubtraction();
 calc.getDivision();
 
-calc.memoryLog();
+
 calc.memoryClean();
 
 console.log("Сумма=" + calc.getSum(3, 54, 23, 53));
